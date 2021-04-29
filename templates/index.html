@@ -1,5 +1,50 @@
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/main.css' %}">
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Freckle+Face&display=swap" rel="stylesheet">
+
+<body>
+    <div id="main-container">
+    <header>
+        <h1>Scrabble Cheat</h1>
+    </header>
+
 <form method="post">
     {% csrf_token %}
-    {{ form.as_p }}
-    <input type="submit" value="Search For Words">
+    
+    <!-- <label for="id_selection">Selection:</label> -->
+    <input type='text' name="selection" required="" id="id_selection"></input>
+    <br>
+
+    <input class=search-button type="submit" value="Search For Words">
 </form>
+
+{% if result is None %}
+    <div class="result-text">
+        <h2>Please enter letters</h2>
+    </div>
+{% endif %}
+
+{% if result == "NO" %}
+    <div class="result-text">
+        <h2>Sorry, No Results</h2>
+    </div>
+{% else %}
+    <h2>Possible Words</h2>
+    {% for words in result %}
+        <div class="result-text">
+        <h2>{{words}}</h2>
+        </div>
+    {% endfor %}
+{% endif %}
+</div>
+</body>
+
+
+
+
+
+
+
+
+
