@@ -7,14 +7,16 @@ import requests
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 def words_view(request):
-    result = []
+    result = None
     if request.method == "POST":
         form = Word_Form(request.POST)
         if form.is_valid():
             data = form.cleaned_data
             typed_word = data['selection']
             result = find_anagrams(typed_word)
-            print(result)
+            if result == []:
+                result = "NO"
+        print(result)
     form = Word_Form()
     return render(request, 'index.html', {"result":result,
                                           "form": form})
