@@ -7,6 +7,7 @@ authors = ["Mike Hartley <mhartley19@gmail.com>"]
 [tool.poetry.dependencies]
 python = "^3.9"
 Django = "^3.2"
+requests = "^2.25.1"
 
 [tool.poetry.dev-dependencies]
 
