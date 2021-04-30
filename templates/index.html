@@ -19,23 +19,21 @@
     <input class=search-button type="submit" value="Search For Words">
 </form>
 
-{% if result is None %}
-    <div class="result-text">
-        <h2>Please enter letters</h2>
-    </div>
-{% endif %}
+
 
 {% if result == "NO" %}
     <div class="result-text">
         <h2>Sorry, No Results</h2>
     </div>
 {% else %}
-    <h2>Possible Words</h2>
+    <h2 class=possible-words>Possible Words</h2>
+    <div class="result-container">
     {% for words in result %}
         <div class="result-text">
-        <h2>{{words}}</h2>
+        <p>{{words}}</p>
         </div>
     {% endfor %}
+    </div>
 {% endif %}
 </div>
 </body>
