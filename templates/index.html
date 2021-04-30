@@ -13,7 +13,7 @@
     {% csrf_token %}
     
     <!-- <label for="id_selection">Selection:</label> -->
-    <input type='text' name="selection" required="" id="id_selection"></input>
+    <input type='text' value="Enter Letters" name="selection" required="" id="id_selection"></input>
     <br>
 
     <input class=search-button type="submit" value="Search For Words">
@@ -26,11 +26,13 @@
         <h2>Sorry, No Results</h2>
     </div>
 {% else %}
-    <h2 class=possible-words>Possible Words</h2>
-    <div class="result-container">
-    {% for words in result %}
+    <!-- <h2 class=possible-words>Possible Words</h2>
+    <div class="result-container"> -->
+    {% for key,value in result_dict.items %}
         <div class="result-text">
-        <p>{{words}}</p>
+        <p>{{key}}</p> 
+        <p></p>Score: {{value}}</p>
+        
         </div>
     {% endfor %}
     </div>

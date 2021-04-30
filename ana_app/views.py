@@ -64,7 +64,6 @@ def find_anagrams(word):
         split_words.append(item)
         for each_letter in split_item:
             if each_letter not in given_letters:
-                print(each_letter)
                 split_words.remove(item)
    
 
