@@ -49,13 +49,9 @@ def find_anagrams(word):
     anagrams = []
     sorted_word = ''.join(sorted(word))
     for items in word_list:
-        if ''.join(sorted(items)) == sorted_word:
+        if ''.join(sorted(items)) in sorted_word:
             anagrams.append(items)
     return anagrams
-
-
-
-
 
 
 
@@ -73,13 +69,3 @@ def split_word(word):
 
 
 
-# word_sort()
-# def word_list():
-#     MW_api = 'https://www.dictionaryapi.com/api/v3/references/collegiate/json/?key=ee240777-9262-4129-abaf-49991628c1fd'
-#     r = requests.get(MW_api).json()
-#     print(r)
-#     # breakpoint()
-#     # words_list = r.json()
-#     # print(words_list['meta'])
-
-# word_list()
