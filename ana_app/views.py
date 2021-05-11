@@ -44,28 +44,17 @@ def words_view(request):
                                           "form": form})
 
 
-# def find_anagrams(word):
-#     word_list = word_list_helper()
-#     anagrams = []
-#     sorted_word = ''.join(sorted(word))
-#     for items in word_list:
-#         if ''.join(sorted(items)) == sorted_word:
-#             anagrams.append(items)
-#     return anagrams
-
-
 def find_anagrams(word):
     word_list = word_list_helper()
-    given_letters = split_word(word)
-    split_words = []
-    matching_words = []
-    for item in word_list:
-        split_item = split_word(item)
-        split_words.append(item)
-        for each_letter in split_item:
-            if each_letter not in given_letters:
-                split_words.remove(item)
-   
+    anagrams = []
+    sorted_word = ''.join(sorted(word))
+    for items in word_list:
+        if ''.join(sorted(items)) == sorted_word:
+            anagrams.append(items)
+    return anagrams
+
+
+
 
 
 
@@ -80,7 +69,7 @@ def word_list_helper():
     return word_list
 
 def split_word(word):
-    return [x for x in word]
+    return [y for y in word]
 
 
 
