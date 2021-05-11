@@ -20,6 +20,7 @@ score_dictoinary = {
 def words_view(request):
     result = None
     result_dict = {}
+    sorted_list = {}
     score = 0
     if request.method == "POST":
         form = Word_Form(request.POST)
@@ -37,10 +38,10 @@ def words_view(request):
                                 score += int(key)
                             result_dict[each] = score
                     score = 0
-            print(result_dict)
+            sorted_list = sorted(result_dict.items(), key=lambda x:x[1], reverse=True)
     form = Word_Form()
     return render(request, 'index.html', {"result":result,
-                                          "result_dict": result_dict,
+                                          "sorted_list": sorted_list,
                                           "form": form})
 
 
@@ -50,8 +51,11 @@ def find_anagrams(word):
     sorted_word = ''.join(sorted(word))
     for items in word_list:
         if ''.join(sorted(items)) in sorted_word:
+            print(sorted_word)
             anagrams.append(items)
     return anagrams
+
+
 
 
 

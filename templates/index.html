@@ -26,13 +26,14 @@
         <h2>Sorry, No Results</h2>
     </div>
 {% else %}
+
+<a id="FilterLink" href="/?highest_score=highest_score/"> Highest Score </a>
     <!-- <h2 class=possible-words>Possible Words</h2>
     <div class="result-container"> -->
-    {% for key,value in result_dict.items %}
+    {% for key, values in sorted_list %}
         <div class="result-text">
         <p>{{key}}</p> 
-        <p></p>Score: {{value}}</p>
-        
+        <p></p>Score: {{values}}</p>
         </div>
     {% endfor %}
     </div>
